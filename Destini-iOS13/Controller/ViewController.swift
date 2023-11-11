@@ -23,12 +23,9 @@ class ViewController: UIViewController {
 
     @IBAction func choiceMade(_ sender: UIButton) {
         let userAnswer = sender.titleLabel?.text // answer 1 / 2
-        let userGotItRight = storyBrain.checkAnswer(userAnswer!)
+        let userChoise = storyBrain.checkAnswer(userAnswer!)
         
-        storyBrain.nextStory(userChoise: userGotItRight)
-        print(userGotItRight)
-        print(storyBrain.getFirstChoiseText())
-        print(storyBrain.getStoryText())
+        storyBrain.nextStory(userChoise: userChoise)
         
         updateUI()
     }
@@ -39,6 +36,5 @@ class ViewController: UIViewController {
         choice2Button.setTitle(storyBrain.getSecondChoiseText(), for: .normal)
 
     }
-    
 }
 
