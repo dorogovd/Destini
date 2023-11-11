@@ -18,13 +18,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        storyLabel.text = storyBrain.story[0].storyText
-        choice1Button.setTitle(storyBrain.story[0].choice1, for: .normal)
-        choice2Button.setTitle(storyBrain.story[0].choice2, for: .normal)
-
+        updateUI()
     }
 
     @IBAction func choiceMade(_ sender: UIButton) {
+        let userAnswer = sender.titleLabel?.text // answer 1 / 2
+        let userGotItRight = storyBrain.checkAnswer(userAnswer!)
+        
+        storyBrain.nextStory(userChoise: userGotItRight)
+        print(userGotItRight)
+        print(storyBrain.getFirstChoiseText())
+        print(storyBrain.getStoryText())
+        
+        updateUI()
+    }
+    
+    func updateUI() {
+        storyLabel.text = storyBrain.getStoryText()
+        choice1Button.setTitle(storyBrain.getFirstChoiseText(), for: .normal)
+        choice2Button.setTitle(storyBrain.getSecondChoiseText(), for: .normal)
+
     }
     
 }
