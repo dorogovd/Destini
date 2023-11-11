@@ -9,11 +9,11 @@
 import Foundation
 
 struct Story {
-    let storyText: String
+    let storyText: [String]
     let userChoices: [String]
-    let correctAnswer: String
+    let correctAnswer: [String]
     
-    init(storyText: String, userChoices: [String], correctAnswer: String) {
+    init(storyText: [String], userChoices: [String], correctAnswer: [String]) {
         self.storyText = storyText
         self.userChoices = userChoices
         self.correctAnswer = correctAnswer
